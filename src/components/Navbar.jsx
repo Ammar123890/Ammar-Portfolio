@@ -49,11 +49,11 @@ const Navbar = () => {
         </ul>
 
         {/* mobile */}
-        <div className="sm:hidden flex flex-1 w-screen justify-end items-center">
+        <div className="sm:hidden flex flex-1 px-4 w-full justify-end items-center">
           {toggle ? (
             <div
-              className={`p-6 bg-flashWhite opacity-[0.98] absolute 
-                top-0 left-0 w-screen h-[100vh] z-10 menu ${
+              className={`p-10  bg-flashWhite opacity-[0.98] absolute 
+                top-0 left-0 w-screen  z-10 menu ${
                   toggle ? 'menu-open' : 'menu-close'
                 }`}>
               <div className="flex justify-end">
@@ -65,16 +65,16 @@ const Navbar = () => {
                 />
               </div>
               <ul
-                className="list-none flex flex-col -gap-[1rem] 
-                items-start justify-end mt-[10rem] -ml-[35px]">
+                className="list-none flex flex-col 
+                items-start justify-end ">
                 {navLinks.map((nav) => (
                   <li
-                    id={nav.id}
+                    // id={nav.id}
                     key={nav.id}
                     className={`${
                       active === nav.title ? 'text-french' : 'text-eerieBlack'
-                    } text-[88px] font-bold font-arenq 
-                      uppercase tracking-[1px] cursor-pointer`}
+                    }  font-beckman font-extrabold text-4xl my-8
+                      uppercase cursor-pointer`}
                     onClick={() => {
                       setToggle(!toggle);
                       setActive(nav.title);
@@ -88,7 +88,7 @@ const Navbar = () => {
             <img
               src={menu}
               alt="menu"
-              className="w-[34px] h-[34px] object-contain cursor-pointer"
+              className="w-[34px] h-[34px]  object-contain cursor-pointer"
               onClick={() => setToggle(!toggle)}
             />
           )}

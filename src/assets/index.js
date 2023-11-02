@@ -37,10 +37,12 @@ import postgresql from './tech/postgresql.png';
 import java from './tech/java.png';
 
 
+
 import teacher from './company/teacher.png';
 import stack from './company/stack.png';
 import research from './company/research.png';
 import desktop from './company/desktop.png';
+import createex from './company/createex.png'
 
 import bazar from './projects/bazar.png';
 import food from './projects/food.png';
@@ -92,5 +94,6 @@ export {
   hotel,
   quiz,
   silk,
-  project
+  project,
+  createex
 };

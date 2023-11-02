@@ -27,6 +27,7 @@ import {
   stack,
   research,
   desktop,
+  createex,
 } from '../assets';
 
 export const navLinks = [
@@ -126,6 +127,14 @@ const technologies = [
 
 const experiences = [
   {
+    title: 'Backend Developer',
+    company_name: 'CREATEEX',
+    icon: createex,
+    iconBg: '#333333',
+    date: 'Sep 2023 - Present',
+    details: 'Backend developer for NodeJs and Express, also for the cloud deployment and database optimization and integeration between different layers'
+  },
+  {
     title: 'Teacher Assistant',
     company_name: 'FAST NUCES',
     icon: teacher,
@@ -134,7 +143,7 @@ const experiences = [
     details: 'Assisted students in resolving problems related to code that did not follow Software Engineering practices Designed and graded assignments to evaluate studentsunderstanding of the course material',
   }, 
   {
-    title: 'Deskop App Dev Intern',
+    title: 'Desktop App Dev Intern',
     company_name: 'QUEST',
     icon: desktop,
     iconBg: '#333333',
