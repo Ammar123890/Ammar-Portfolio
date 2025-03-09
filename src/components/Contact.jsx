@@ -29,16 +29,16 @@ const Contact = () => {
     //click on create a new template then click on save.
     emailjs
       .send(
-        'service_1dhwb87', // paste your ServiceID here (you'll get one when your service is created).
-        '123456789', // paste your TemplateID here (you'll find it under email templates).
+        'service_5smuoz8',
+        'template_kysuzhh',
         {
           from_name: form.name,
-          to_name: 'Syed Ammar', // put your name here.
+          to_name: 'Syed Ammar', 
           from_email: form.email,
-          to_email: 'syedammar123890@gmail.com', //put your email here.
+          to_email: 'syedmuhammadammar22@gmail.com', 
           message: form.message,
         },
-        'qxxjCNjcFVgT83Ml4' //paste your Public Key here. You'll get it in your profile section.
+        'siizS6bAr1WU13lEj' 
       )
       .then(
         () => {
