@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -11,51 +11,109 @@ import { download, downloadHover, resume } from '../assets';
 import resumePdf from '../assets/resume/Syed.Ammar.pdf';
 import { textVariant } from '../utils/motion';
 import { SectionWrapper } from '../hoc';
+import { FaCheckCircle } from 'react-icons/fa';
 
+const ExperienceCard = ({ experience }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
 
-const ExperienceCard = ({ experience }) => (
-  <VerticalTimelineElement
-    contentStyle={{
-      background: '#eaeaec',
-      color: '#292929',
-      boxShadow:
-        'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
-    }}
-    contentArrowStyle={{
-      borderRight: '7px solid  #232631',
-    }}
-    date={
-      <div>
-        <h3 className="text-dim text-[18px] font-bold font-beckman">
-          {experience.date}
+  const toggleExpand = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+  return (
+    <VerticalTimelineElement
+      contentStyle={{
+        background: '#eaeaec',
+        color: '#292929',
+        boxShadow:
+          'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
+      }}
+      contentArrowStyle={{
+        borderRight: '7px solid  #232631',
+      }}
+      date={
+        <div>
+          <h3 className="text-dim text-[18px] font-bold font-beckman">
+            {experience.date}
+          </h3>
+        </div>
+      }
+      iconStyle={{ background: experience.iconBg }}
+      icon={
+        <div className="flex justify-center items-center w-full h-full">
+          <img
+            src={experience.icon}
+            alt={experience.company_name}
+            className="w-[60%] h-[60%] object-contain"
+          />
+        </div>
+      }
+    >
+      <div onClick={toggleExpand} style={{ cursor: 'pointer' }}>
+        <h3 className="text-jetLight text-[24px] font-bold font-beckman tracking-[2px]">
+          {experience.title}
         </h3>
+        <p
+          className="text-taupe text-[22px] font-semibold font-overcameBold tracking-[1px]"
+          style={{ margin: 0 }}
+        >
+          {experience.company_name}
+        </p>
+        <div className="mt-2">
+          <h4 className="text-taupe text-[18px] font-semibold font-overcameBold tracking-[1px]">Overview</h4>
+          <p className="text-[16px] mt-1 text-justify">{experience.details.overview}</p>
+        </div>
+
+        {!isExpanded && (
+          <p className="text-sm text-center mt-2 text-taupe">
+            Click to see details
+          </p>
+        )}
+
+        {isExpanded && (
+          <div className="mt-2">
+            <h4 className="text-taupe text-[18px] font-semibold font-overcameBold tracking-[1px]">Responsibilities</h4>
+            <ul className="mt-2 space-y-2">
+              {experience.details.responsibilities.map((responsibility, index) => (
+                <li
+                  key={index}
+                  className="text-[16px] text-justify flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors duration-200"
+                >
+                  <FaCheckCircle className="mr-2 text-gray-500" />
+                  <span className="font-medium">{responsibility}</span>
+                </li>
+              ))}
+            </ul>
+
+            {experience.details.links && experience.details.links.length > 0 && (
+              <div className="mt-2">
+                <h4 className="text-taupe text-[18px] font-semibold font-overcameBold tracking-[1px]">Links</h4>
+                <ul className="mt-2 space-y-2">
+                  {experience.details.links.map((link, index) => (
+                    <li key={index} className="text-[16px]">
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-500 hover:underline"
+                      >
+                        {link.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <p className="text-sm text-center mt-2 text-taupe">
+              Click to hide details
+            </p>
+          </div>
+        )}
       </div>
-    }
-    iconStyle={{ background: experience.iconBg }}
-    icon={
-      <div className="flex justify-center items-center w-full h-full">
-        <img
-          src={experience.icon}
-          alt={experience.company_name}
-          className="w-[60%] h-[60%] object-contain"
-        />
-      </div>
-    }
-  >
-    <div>
-      <h3 className="text-jetLight text-[24px] font-bold font-beckman tracking-[2px]">
-        {experience.title}
-      </h3>
-      <p
-        className="text-taupe text-[22px] font-semibold font-overcameBold tracking-[1px]"
-        style={{ margin: 0 }}
-      >
-        {experience.company_name}
-      </p>
-      <p className="text-[16px] mt-2">{experience.details}</p> {/* New "details" section */}
-    </div>
-  </VerticalTimelineElement>
-);
+    </VerticalTimelineElement>
+  );
+};
 
 const Experience = () => {
   return (

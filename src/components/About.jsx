@@ -37,8 +37,7 @@ const About = () => {
       <motion.p
         variants={fadeIn('', '', 0.1, 1)}
         className="mt-4 text-taupe text-[18px] max-w-3xl leading-[30px]">
-        I am a Skilled full stack developer with expertise in React, Node.js, Express, MongoDB, and Java. With a strong background in project management, I have successfully led teams to deliver web applications, while implementing efficient CI/CD processes. Additionally, my proficiency in DevOps practices, including Docker, Kubernetes, and AWS, enables me to streamline build, test, and deployment
-pipelines for seamless application delivery
+        As a software engineer, I have over three years of experience in developing software solutions and managing the development lifecycle. I have contributed to innovative product development and delivered software services, focusing on designing scalable architectures, implementing efficient solutions, and leveraging modern development practices to build high-quality systems.
      
       </motion.p>
 
